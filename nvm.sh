@@ -1925,6 +1925,11 @@ BEGIN {
     output[m++] = formatted;
   }
 
+  skipped = rows - m + 1
+  if (skipped > 0) {
+    printf("[WARN] %d version(s) skipped.\n", skipped) > "/dev/stderr"
+  }
+
   for (n = 1; n < m; n++) {
     print output[n]
   }
